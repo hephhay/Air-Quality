@@ -2,8 +2,6 @@ import fetch from 'node-fetch';
 import { airQualityRes, location } from '../util/types';
 import { pollutionEndpoint } from '../util/index';
 
-
-
 async function getAirQuality(query: location){
     const url = pollutionEndpoint(query)
 
@@ -19,7 +17,7 @@ async function getAirQuality(query: location){
     }
 
     const result = (await response.json()) as airQualityRes;
-    return result.data.current.pollution
+    return result.data.current.pollution;
 }
 
-export {pollutionEndpoint, getAirQuality}
+export { getAirQuality}

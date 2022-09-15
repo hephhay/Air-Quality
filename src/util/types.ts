@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 interface airQualityRes{
     status : string,
     data:{
@@ -23,4 +25,6 @@ const paris = {
     lat: '48.856613'
 }
 
-export { airQualityRes, location, paris };
+type polutionReq = Request<{}, {}, {}, {longitude: number,latitude: number}>
+
+export { airQualityRes, location, paris, polutionReq };

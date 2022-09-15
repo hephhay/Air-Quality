@@ -1,3 +1,3 @@
-const healthResponse = {status: 'OK'};
+const healthResponse = 'OK';
 
 export { healthResponse };

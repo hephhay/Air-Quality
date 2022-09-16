@@ -9,7 +9,7 @@ healthRouter.get('/sync', (req, res) => {
     const result = healthCheckSync();
     res.json({
         health: result,
-        status: 200
+        status: 'success'
     });
 });
 
@@ -17,7 +17,7 @@ healthRouter.get('/async', async (req, res) => {
     const result = await healthCheckAsync();
     res.json({
         health: result,
-        status: 200
+        status: 'success'
     });
 });
 

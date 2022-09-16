@@ -46,9 +46,9 @@ const PollutionSchema = new Schema<IPollution, IPollutionModel>(
 
 PollutionSchema.static('maxPollutionTime', async function maxPollutionTime(){
     const pollute = await this.find().sort({aqius: -1}).limit(1).exec();
-    return {date: pollute[0].ts} 
+    return {date: pollute[0].ts || ''};
 });
 
 const Pollution = model<IPollution, IPollutionModel>('Pollution', PollutionSchema);
 
-export default Pollution;
+export {Pollution, IPollutionModel} ;

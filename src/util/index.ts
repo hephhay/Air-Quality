@@ -1,4 +1,6 @@
 import { URL, URLSearchParams } from 'url';
+import fetch from 'node-fetch';
+
 import { location } from '../util/types';
 
 function pollutionEndpoint(query: location) {
@@ -14,4 +16,20 @@ function pollutionEndpoint(query: location) {
     return url.href
 }
 
-export { pollutionEndpoint };
+async function queryPollution(url: string){
+
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`Error! status: ${response.status}`);
+    }
+
+    return response.json();
+}
+
+export { pollutionEndpoint, queryPollution };

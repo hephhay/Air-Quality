@@ -109,3 +109,5 @@ function gracefulShutdown (signal: any) {
         setTimeout(() => process.exit(1), 500);
     }
 }
+
+export {app, server};

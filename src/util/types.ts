@@ -22,6 +22,16 @@ interface location{
     lon: string
 }
 
-type polutionReq = Request<{}, {}, {}, {longitude: number,latitude: number}>
+interface extraReq{
+    longitude: number,
+    latitude: number
+}
 
-export { airQualityRes, location, polutionReq, pollutionData };
+interface testReq{
+    longitude: string,
+    latitude: string
+}
+
+type polutionReq = Request<{}, {}, {}, extraReq>
+
+export { airQualityRes, location, polutionReq, pollutionData, testReq };
